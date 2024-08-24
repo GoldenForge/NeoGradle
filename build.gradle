@@ -55,7 +55,7 @@ subprojects.forEach { Project subProject ->
 
     //General project metadata. Everything has the same version and group.
     subProject.version = subProject.rootProject.version
-    subProject.group = 'net.neoforged.gradle'
+    subProject.group = 'org.kettingpowered.patched.neoforged.gradle'
     subProject.base.archivesName = "ng-${subProject.name.toLowerCase(Locale.ROOT)}"
 
     //Setup the java toolchain
@@ -238,7 +238,14 @@ subprojects.forEach { subProject ->
 subprojects.forEach { subProject ->
     subProject.afterEvaluate { Project evalSubProject ->
         evalSubProject.publishing.repositories { RepositoryHandler repositories ->
-            maven gradleutils.getPublishingMaven()
+            maven {
+                name = 'kettingRepo'
+                credentials {
+                    username = System.getenv("KETTINGUSERNAME")
+                    password = System.getenv("KETTINGPASSWORD")
+                }
+                url = "https://reposilite.c0d3m4513r.com/Ketting/"
+            }
         }
 
         if (evalSubProject.getPlugins().hasPlugin("java-gradle-plugin")) {
