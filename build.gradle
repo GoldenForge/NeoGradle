@@ -186,7 +186,7 @@ subprojects.forEach { subProject ->
                     pluginClassName = evalSubProject.file('src/main/java/').toPath().relativize(pluginFile.toPath()).toString().replace('/', '.').replace('\\', '.').replace(".java", "")
                 }
 
-                def pluginId = 'net.neoforged.gradle.' + evalSubProject.name.toLowerCase(Locale.ROOT)
+                def pluginId = 'org.kettingpowered.patched.neoforged.gradle.' + evalSubProject.name.toLowerCase(Locale.ROOT)
                 try {
                     var propertyValue = evalSubProject.property('pluginId')
                     if (propertyValue != null) {
