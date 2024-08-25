@@ -55,7 +55,7 @@ subprojects.forEach { Project subProject ->
 
     //General project metadata. Everything has the same version and group.
     subProject.version = subProject.rootProject.version
-    subProject.group = 'org.kettingpowered.patched.neoforged.gradle'
+    subProject.group = 'org.goldenforge.patched.neoforged.gradle'
     subProject.base.archivesName = "ng-${subProject.name.toLowerCase(Locale.ROOT)}"
 
     //Setup the java toolchain
@@ -186,7 +186,7 @@ subprojects.forEach { subProject ->
                     pluginClassName = evalSubProject.file('src/main/java/').toPath().relativize(pluginFile.toPath()).toString().replace('/', '.').replace('\\', '.').replace(".java", "")
                 }
 
-                def pluginId = 'org.kettingpowered.patched.neoforged.gradle.' + evalSubProject.name.toLowerCase(Locale.ROOT)
+                def pluginId = 'org.goldenforge.patched.neoforged.gradle.' + evalSubProject.name.toLowerCase(Locale.ROOT)
                 try {
                     var propertyValue = evalSubProject.property('pluginId')
                     if (propertyValue != null) {
