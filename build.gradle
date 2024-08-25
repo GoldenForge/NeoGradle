@@ -241,8 +241,8 @@ subprojects.forEach { subProject ->
             maven {
                 name = 'ModcraftRepos'
                 credentials {
-                    username = System.getenv("MODCRAFTUSERNAME")
-                    password = System.getenv("MODCRAFTPASSWORD")
+                    username = System.getenv("MAVEN_USER")
+                    password = System.getenv("MAVEN_PASSWORD")
                 }
                 url = "https://maven.modcraftmc.fr/releases"
             }
