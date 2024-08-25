@@ -38,6 +38,7 @@ class LibraryCollector extends ModuleIdentificationVisitor {
     private static final URI NEOFORGED_MAVEN = URI.create("https://maven.neoforged.net/releases")
     private static final URI PAPER_MAVEN = URI.create("https://repo.papermc.io/repository/maven-public/")
     private static final URI MODCRAFT_MAVEN = URI.create("https://maven.modcraftmc.fr/releases")
+    private static final URI SPONGE_MAVEN = URI.create("https://repo.spongepowered.org/maven/")
 
     private final ObjectFactory objectFactory;
     private final List<URI> repositoryUrls
@@ -68,8 +69,10 @@ class LibraryCollector extends ModuleIdentificationVisitor {
         repositoryUrls.removeIf { it.host == NEOFORGED_MAVEN.host && it.path.startsWith(NEOFORGED_MAVEN.path) }
         repositoryUrls.removeIf { it.host == PAPER_MAVEN.host && it.path.startsWith(PAPER_MAVEN.path) }
         repositoryUrls.removeIf { it.host == MODCRAFT_MAVEN.host && it.path.startsWith(MODCRAFT_MAVEN.path) }
+        repositoryUrls.removeIf { it.host == SPONGE_MAVEN.host && it.path.startsWith(SPONGE_MAVEN.path) }
         repositoryUrls.add(0, PAPER_MAVEN)
         repositoryUrls.add(0, MODCRAFT_MAVEN)
+        repositoryUrls.add(0, SPONGE_MAVEN)
         repositoryUrls.add(0, NEOFORGED_MAVEN)
         repositoryUrls.add(0, MOJANG_MAVEN)
 
