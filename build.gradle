@@ -239,12 +239,12 @@ subprojects.forEach { subProject ->
     subProject.afterEvaluate { Project evalSubProject ->
         evalSubProject.publishing.repositories { RepositoryHandler repositories ->
             maven {
-                name = 'kettingRepo'
+                name = 'ModcraftRepos'
                 credentials {
-                    username = System.getenv("KETTINGUSERNAME")
-                    password = System.getenv("KETTINGPASSWORD")
+                    username = System.getenv("MODCRAFTUSERNAME")
+                    password = System.getenv("MODCRAFTPASSWORD")
                 }
-                url = "https://reposilite.c0d3m4513r.com/Ketting/"
+                url = "https://maven.modcraftmc.fr/releases"
             }
         }
 
