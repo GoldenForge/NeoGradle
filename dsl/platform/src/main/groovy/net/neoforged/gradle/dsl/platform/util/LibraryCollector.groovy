@@ -36,8 +36,8 @@ class LibraryCollector extends ModuleIdentificationVisitor {
 
     private static final URI MOJANG_MAVEN = URI.create("https://libraries.minecraft.net")
     private static final URI NEOFORGED_MAVEN = URI.create("https://maven.neoforged.net/releases")
-    private static final URI KETTING_MAVEN = URI.create("https://reposilite.c0d3m4513r.com/Ketting")
-    private static final URI MAGMA_MAVEN = URI.create("https://reposilite.c0d3m4513r.com/Magma")
+    private static final URI PAPER_MAVEN = URI.create("https://repo.papermc.io/repository/maven-public/")
+    private static final URI MODCRAFT_MAVEN = URI.create("https://maven.modcraftmc.fr/releases")
 
     private final ObjectFactory objectFactory;
     private final List<URI> repositoryUrls
@@ -66,10 +66,10 @@ class LibraryCollector extends ModuleIdentificationVisitor {
         // Always try Mojang Maven first, then our installer Maven
         repositoryUrls.removeIf { it.host == MOJANG_MAVEN.host }
         repositoryUrls.removeIf { it.host == NEOFORGED_MAVEN.host && it.path.startsWith(NEOFORGED_MAVEN.path) }
-        repositoryUrls.removeIf { it.host == KETTING_MAVEN.host && it.path.startsWith(KETTING_MAVEN.path) }
-        repositoryUrls.removeIf { it.host == MAGMA_MAVEN.host && it.path.startsWith(MAGMA_MAVEN.path) }
-        repositoryUrls.add(0, MAGMA_MAVEN)
-        repositoryUrls.add(0, KETTING_MAVEN)
+        repositoryUrls.removeIf { it.host == PAPER_MAVEN.host && it.path.startsWith(PAPER_MAVEN.path) }
+        repositoryUrls.removeIf { it.host == MODCRAFT_MAVEN.host && it.path.startsWith(MODCRAFT_MAVEN.path) }
+        repositoryUrls.add(0, PAPER_MAVEN)
+        repositoryUrls.add(0, MODCRAFT_MAVEN)
         repositoryUrls.add(0, NEOFORGED_MAVEN)
         repositoryUrls.add(0, MOJANG_MAVEN)
 
